@@ -93,3 +93,24 @@ Once representative colors were extracted for all players in a frame, a second K
 To determine player possession, a distance-based player–ball association method was employed. For each frame, the ball position was estimated using the center of its detected bounding box. The Euclidean distance between the ball and each detected player was then computed using the lower corners of the player’s bounding box, approximating foot location where ball interaction typically occurs.
 
 The player with the minimum distance to the ball, provided the distance was below a predefined threshold, was assigned possession of the ball. This threshold-based filtering reduced false assignments when the ball was not in close proximity to any player. The approach enabled reliable estimation of individual possession events, which were subsequently aggregated for team-level possession analysis.
+
+## 5 Results
+The custom-trained YOLOv5 model was able to detect players, referees, and the ball on the pitch and reduced false detections outside the playing area compared to the pre-trained model. Player tracking worked well for most of the video, but toward the end of the sequence, one or two players were incorrectly assigned to the wrong team.
+
+<p align="center">
+  <img width="767" height="425" alt="Screenshot 2025-12-17 220150" src="https://github.com/user-attachments/assets/9c88dbf2-88b5-4b23-8332-50243bdbb612" />
+</p>
+<p align="center">
+  <em><strong>Figure 1:</strong> Final Output.</em>
+</p>
+
+**Link to video: ** https://www.dropbox.com/scl/fi/znzwobl80j8x6kuwh8nx2/output_video.avi?rlkey=ba16ogbsvl6ro3jp3mxkmi2lr&dl=0 <br>
+
+The jersey color–based team assignment was mostly accurate, although a small number of misclassifications occurred due to changes in appearance and tracking inconsistencies. Ball tracking was generally reliable during short passes and close play; however, during long-ball situations, the tracker sometimes drifted away from the actual ball position over a long distance.
+
+Despite these limitations, the system produced reasonable team possession estimates and demonstrated the feasibility of automated football video analysis using deep learning and computer vision techniques.
+
+## Future Work
+Future improvements could include upgrading the detection backbone to more recent architectures such as YOLOv8 or YOLOv11, as well as transformer-based object detection models like DETR or Meta AI’s DINO / Grounding DINO, which may improve robustness to occlusion and long-range object tracking. Incorporating explicit camera motion compensation would enable more accurate estimation of player displacement, allowing reliable computation of player speed and movement-based metrics.
+
+Additional extensions could involve extracting higher-level football statistics such as distance covered, sprint frequency, pressing intensity, and spatial heatmaps. Improving ball tracking during long passes using motion models such as Kalman filtering could further enhance possession and event analysis.
