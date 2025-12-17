@@ -104,7 +104,7 @@ The custom-trained YOLOv5 model was able to detect players, referees, and the ba
   <em><strong>Figure 1:</strong> Final Output.</em>
 </p>
 
-**Link to video: ** https://www.dropbox.com/scl/fi/znzwobl80j8x6kuwh8nx2/output_video.avi?rlkey=ba16ogbsvl6ro3jp3mxkmi2lr&dl=0 <br>
+**Link to video:** https://www.dropbox.com/scl/fi/znzwobl80j8x6kuwh8nx2/output_video.avi?rlkey=ba16ogbsvl6ro3jp3mxkmi2lr&dl=0 <br>
 
 The jersey color–based team assignment was mostly accurate, although a small number of misclassifications occurred due to changes in appearance and tracking inconsistencies. Ball tracking was generally reliable during short passes and close play; however, during long-ball situations, the tracker sometimes drifted away from the actual ball position over a long distance.
 
